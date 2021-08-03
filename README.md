@@ -11,3 +11,9 @@ Frontend feito em Angular com o auxílio do Bootstrap.
 2. Entre na pasta frontend
   - npm install
   - ng serve
+
+## Integrantes do Grupo
+- Edgar Davi Cunha de Almeida
+- João Victor Henrique Madeira
+- Lucas Rennó Kallás
+- Luiz Sergio Alves Domingues

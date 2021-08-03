@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-2">
+    <a class="navbar-brand" [routerLink]="['/']">
+        <img src="assets/static/logo.png" alt="logo" id="logo" width="100px">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Imóveis
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['imoveis/create']">Cadastro</a>
+                    <a class="dropdown-item" [routerLink]="['imoveis']">Listagem</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Corretores
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['corretores/create/comissionado']">Cadastro de corretor
+                        comissionado</a>
+                    <a class="dropdown-item" [routerLink]="['corretores/create/contratado']">Cadastro de corretor
+                        contratado</a>
+                    <a class="dropdown-item" [routerLink]="['corretores']">Listagem</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['vendas/create']">Cadastro de venda</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['salarios']">Pagamento de salários</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Relatorios
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['relatorios/faturamento-total']">Faturamento total</a>
+                    <a class="dropdown-item" [routerLink]="['relatorios/lucro-total']">Lucro total</a>
+                    <a class="dropdown-item" [routerLink]="['relatorios/imoveis-vendidos']">Imóveis vendidos</a>
+                    <a class="dropdown-item" [routerLink]="['relatorios/imoveis-encalhados']">Imóveis encalhados</a>
+                    <a class="dropdown-item" [routerLink]="['relatorios/faturamento-corretor']">Faturamento por corretor</a>
+                    <a class="dropdown-item" [routerLink]="['relatorios/valor-pago-corretor']">Valor pago a cada corretor</a>
+                    <a class="dropdown-item" [routerLink]="['relatorios/corretor-mes']">Corretor do mês</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

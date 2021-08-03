@@ -1,0 +1,60 @@
+<div class="d-flex flex-column align-items-center p-4">
+
+    <h2>Listagem de Corretores</h2>
+
+    <div class="container mt-3">
+        <div class="row mt-5">
+            <div class="container">
+                <div class="row bg-light my-2 border p-2" *ngFor="let corretor of corretores;">
+
+                    <div class="col-8 d-flex flex-column justify-content-center">
+                        <div class="row">
+                            <div class="col-6">
+                                <p>CRECI: {{ corretor.creci }}</p>
+                            </div>
+                            <div class="col-6">
+                                <p>Nome: {{ corretor.nome }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <ng-container *ngIf="corretor.tipo === 'CONTRATADO'">
+                                <div class="col-6">
+                                    <p>Salario: {{ corretor.salario }}</p>
+                                </div>
+                                <div class="col-6">
+                                    <p>Data de admissao: {{  formatDate(corretor.dataAdmissao) }}</p>
+                                </div>
+                            </ng-container>
+
+                            <ng-container *ngIf="corretor.tipo === 'COMISSIONADO'">
+                                <div class="col-6">
+                                    <p>Comissão: {{ corretor.comissao * 100 }}%</p>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="col-2 d-flex flex-column justify-content-center">
+                        <div class="row mb-2" *ngIf="corretor.tipo === 'CONTRATADO'">
+                            <button type="button" class="btn btn-secondary" [routerLink]="['/corretores/edit/contratado']" [state]="{
+                                    data: corretor
+                                }">
+                                Editar
+                            </button>
+                        </div>
+                        <div class="row mb-2" *ngIf="corretor.tipo === 'COMISSIONADO'">
+                            <button type="button" class="btn btn-secondary" [routerLink]="['/corretores/edit/comissionado']" [state]="{
+                                    data: corretor
+                                }">
+                                Editar
+                            </button>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-danger" (click)="excluir(corretor)">Excluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

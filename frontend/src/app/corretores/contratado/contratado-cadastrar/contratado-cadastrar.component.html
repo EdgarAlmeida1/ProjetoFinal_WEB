@@ -1,0 +1,35 @@
+<div class="d-flex flex-column align-items-center p-4">
+
+    <h2>Cadastro de Corretores Contratados</h2>
+
+    <div class="d-flex flex-column w-75 my-5 p-5 rounded shadow bg-dark text-white">
+        <div class="row mb-4">
+            <div class="col">
+                <label class="form-label">CRECI</label>
+                <input class="form-control" [(ngModel)]="corretor.creci">
+            </div>
+
+            <div class="col">
+                <label class="form-label">Data de Admissão</label>
+                <input class="form-control" placeholder="dd/mm/aaaa" [(ngModel)]="corretor.dataAdmissao">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                <label class="form-label">Nome</label>
+                <input class="form-control" [(ngModel)]="corretor.nome">
+            </div>
+
+            <div class="col">
+                <label class="form-label">Salário</label>
+                <input class="form-control" [(ngModel)]="corretor.salario">
+            </div>
+        </div>
+        <div class="container d-flex justify-content-center">
+            <div class="row w-50">
+                <button type="button" class="btn btn-light" (click)="cadastrar()">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+
+</div>

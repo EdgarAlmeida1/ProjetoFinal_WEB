@@ -1,0 +1,44 @@
+<div class="d-flex flex-column align-items-center p-4">
+
+    <h2>Edição de Imóvel</h2>
+
+    <div class="d-flex flex-column w-75 my-5 p-5 rounded shadow bg-dark text-white">
+        <div class="row mb-4">
+            <div class="col">
+                <label class="form-label">Descrição</label>
+                <textarea class="form-control" rows="3" [(ngModel)]="imovel.descricao"></textarea>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col">
+                <label class="form-label">Nome do vendedor</label>
+                <input class="form-control" [(ngModel)]="imovel.nomeVendedor">
+            </div>
+
+            <div class="col">
+                <label class="form-label">Preço solicitado</label>
+                <input class="form-control" [(ngModel)]="imovel.preco">
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col">
+                <label class="form-label">Selecione a imagem do imóvel</label>
+                <input class="form-control" type="file" accept="image/*" [(ngModel)]="imovel.imagem">
+            </div>
+            <div class="col">
+                <label class="form-label">Data de cadastro</label>
+                <input class="form-control" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"
+                    [(ngModel)]="imovel.dataCadastro">
+            </div>
+        </div>
+
+        <div class="container d-flex justify-content-center">
+            <div class="row w-50">
+                <button type="button" class="btn btn-light" (click)="cadastrar()">Editar</button>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,24 @@
+<div class="d-flex flex-column align-items-center p-4">
+    <h2>Lucro Total por Mês</h2>
+
+    <div class="row mb-4">
+        <p>Digite o mês e o ano desejado para o relatório: </p>
+        <div class="col">
+            <input class="form-control" placeholder="Mês" [(ngModel)]="mes" (click)="onChange()">
+        </div>
+
+        <div class="col">
+            <input class="form-control" placeholder="Ano" [(ngModel)]="ano" (click)="onChange()">
+        </div>
+    </div>
+
+    <div class="container d-flex justify-content-center">
+        <div class="row w-50">
+            <button type="button" class="btn btn-dark" (click)="calcular()">Gerar relatório</button>
+        </div>
+    </div>
+
+    <div class="row mt-5" *ngIf="total !== -1">
+        <h3>Lucro no mês {{ mes }} de {{ ano }}: R$ {{ total }}</h3>
+    </div>
+</div>

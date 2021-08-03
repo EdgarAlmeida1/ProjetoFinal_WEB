@@ -1,0 +1,21 @@
+<div class="d-flex flex-column align-items-center p-4">
+
+    <h2>Edição de Corretor Contratado</h2>
+
+    <div class="d-flex flex-column w-75 my-5 p-5 rounded shadow bg-dark text-white">
+        <div class="row mb-4">
+            <div class="col">
+                <label class="form-label">Salário</label>
+                <input class="form-control" [(ngModel)]="corretor.salario">
+            </div>
+        </div>
+
+
+        <div class="container d-flex justify-content-center">
+            <div class="row w-50">
+                <button type="button" class="btn btn-light" (click)="editar()">Editar</button>
+            </div>
+        </div>
+    </div>
+
+</div>

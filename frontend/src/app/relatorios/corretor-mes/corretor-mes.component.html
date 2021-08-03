@@ -1,0 +1,54 @@
+<div class="d-flex flex-column align-items-center p-4">
+    <h2>Corretor do Mês</h2>
+
+    <div class="row mb-4">
+        <p>Digite o mês e o ano desejado para o relatório: </p>
+        <div class="col">
+            <input class="form-control" placeholder="Mês" [(ngModel)]="mes" (click)="onChange()">
+        </div>
+
+        <div class="col">
+            <input class="form-control" placeholder="Ano" [(ngModel)]="ano" (click)="onChange()">
+        </div>
+    </div>
+
+    <div class="container d-flex justify-content-center">
+        <div class="row w-50">
+            <button type="button" class="btn btn-dark" (click)="calcular()">Gerar relatório</button>
+        </div>
+    </div>
+
+    <div class="row bg-light my-5 border p-2 w-50" *ngIf="status === 1">
+        <h2>Corretor do mês: </h2>
+        <div class="col d-flex flex-column justify-content-center">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>CRECI: {{ corretor.creci }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Nome: {{ corretor.nome }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <ng-container *ngIf="corretor.tipo === 'CONTRATADO'">
+                    <div class="col-md-6">
+                        <p>Salario: R$ {{ corretor.salario }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Data de admissao: {{  formatDate(corretor.dataAdmissao) }}</p>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="corretor.tipo === 'COMISSIONADO'">
+                    <div class="col-6">
+                        <p>Comissão: {{ corretor.comissao * 100 }}%</p>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5" *ngIf="status === 2">
+        <h2>Não existe um corretor do mês neste período!</h2>
+    </div>
+</div>

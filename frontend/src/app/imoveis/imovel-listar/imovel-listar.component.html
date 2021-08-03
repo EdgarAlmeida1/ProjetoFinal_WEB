@@ -1,0 +1,69 @@
+<div class="d-flex flex-column align-items-center p-4">
+
+    <h2>Listagem de Imóveis</h2>
+
+    <div class="container mt-3">
+        <div class="row">
+            <select class="form-select" #t (change)="onChange(t.value)">
+                <option selected disabled>Selecione um tipo para a filtragem</option>
+                <ng-container *ngFor="let tipo of tiposDisponiveis;">
+                    <option value="{{ tipo.value }}" *ngIf="tipo.show">
+                        {{ tipo.label }}
+                    </option>
+                </ng-container>
+            </select>
+        </div>
+        <div class="row mt-5">
+            <div class="container">
+                <div class="row bg-light my-2 border p-2" *ngFor="let imovel of imoveisSelecionados;">
+                    <div class="col-2 d-flex justify-content-center align-items-center">
+                        <img src="https://cdn.vistahost.com.br/coutoeol20177/vista.imobi/fotos/1317/i01LcH5g7q_13175c49ec5471375.jpg"
+                            width="100%" style="object-fit: cover;">
+                    </div>
+
+                    <div class="col-8 d-flex flex-column justify-content-center">
+                        <div class="row">
+                            <div class="col-6">
+                                <p>Código: {{ imovel.codigo }}</p>
+                            </div>
+                            <div class="col-6">
+                                <p>Vendedor: {{ imovel.nomeVendedor }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <p>Preço: R$ {{ imovel.preco }}</p>
+                            </div>
+                            <div class="col-6">
+                                <p>Data de cadastro: {{ formatDate(imovel.dataCadastro) }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p>Tipo: {{ formatType(imovel.tipo) }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p style="word-wrap: break-word;">Descrição: {{ imovel.descricao }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2 d-flex flex-column justify-content-center">
+                        <div class="row mb-2">
+                            <button type="button" class="btn btn-secondary" [routerLink]="['/imoveis/edit']" [state]="{
+                                    data: imovel
+                                }">
+                                Editar
+                            </button>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-danger" (click)="excluir(imovel)">Excluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

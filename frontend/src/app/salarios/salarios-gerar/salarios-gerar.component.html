@@ -1,0 +1,42 @@
+<div class="d-flex flex-column align-items-center p-4">
+    <h2>Cálculo de Salários</h2>
+
+    <div class="row mb-4">
+        <p>Digite os dados para o cálculo do salário: </p>
+        <div class="col">
+            <input class="form-control" placeholder="Mês" [(ngModel)]="mes">
+        </div>
+
+        <div class="col">
+            <input class="form-control" placeholder="Ano" [(ngModel)]="ano">
+        </div>
+
+        <div class="col">
+            <select class="form-select" [(ngModel)]="creci">
+                <option selected disabled value="">Selecione um corretor: </option>
+                <option *ngFor="let corretor of corretores;" value="{{ corretor.creci }}">{{ corretor.nome }}</option>
+              </select>
+        </div>
+    </div>
+
+    <div class="container d-flex justify-content-center">
+        <div class="row w-50">
+            <button type="button" class="btn btn-dark" (click)="calcular()">Gerar relatório</button>
+        </div>
+    </div>
+
+    <div class="row mt-5 d-flex justify-content-center card p-5" *ngIf="status">
+        <div class="col">
+            <h3>Nome: {{ result.nome }}</h3>
+        </div>
+        <div class="col" *ngIf="result.tipo === 'COMISSIONADO'">
+            <h5>Comissao: {{ result.salario }}</h5>
+        </div>
+        <div class="col" *ngIf="result.tipo === 'CONTRATADO'">
+            <h5>Valor das comissões: {{ result.salario - result.fixo}}</h5>
+            <h5>Salario fixo: {{ result.fixo }}</h5>
+            <h5>Total recebido: {{ result.salario }}</h5>
+        </div>
+    </div>
+
+</div>
